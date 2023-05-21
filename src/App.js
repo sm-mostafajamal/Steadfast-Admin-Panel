@@ -4,38 +4,49 @@ import Login from "./pages/login/Login";
 import New from "./pages/new/New";
 import Lists from "./pages/lists/Lists";
 import Single from "./pages/single/Single";
-import { userInputs, productInputs } from "./formSource";
+// import { userInputs, productInputs } from "./formSource";
 import "./pages/style/dark.scss";
 import "./pages/style/light.scss";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DarkModeContext } from "./context/DarkModeContext";
+import { getAllJobs } from "./server/jobsServer";
+import { useQuery } from "react-query";
+import { useDispatch } from "react-redux";
+import { appendJob } from "./redux/jobReducer";
 
 function App() {
+  const dispatch = useDispatch();
   const { state } = useContext(DarkModeContext);
+  const { isLoading, data } = useQuery("jobs", getAllJobs);
+  useEffect(() => {
+    if (data) {
+      dispatch(appendJob(data));
+    }
+  }, [data, dispatch]);
 
   return (
     <div className={state.darkMode ? "app dark" : "app light"}>
       <BrowserRouter>
         <Routes>
           {/* <Route path="/" element={<Navigate replace to="/login" />}> */}
-          <Route path="/login" element={<Login />} />
-          <Route index element={<Home />} />
           <Route path="*" element={<Navigate to="/" replace />} />
-          <Route path="users">
+          <Route path="login" element={<Login />} />
+          <Route index element={<Home />} />
+          <Route path="jobs">
             <Route index element={<Lists />} />
-            <Route path=":userId" element={<Single />} />
+            <Route path=":jobId" element={<Single />} />
             <Route
-              path="new"
-              element={<New inputs={userInputs} title="Add New User" />}
+              path="create-job/new"
+              element={<New title="Add New User" />}
             />
           </Route>
-          <Route path="products">
+          <Route path="applied">
             <Route index element={<Lists />} />
-            <Route path=":productId" element={<Single />} />
-            <Route
-              path="new"
-              element={<New inputs={productInputs} title="Add New Product" />}
-            />
+            <Route path=":formId" element={<Single />} />
+          </Route>
+          <Route path="contacts">
+            <Route index element={<Lists />} />
+            <Route path=":formId" element={<Single />} />
           </Route>
           {/* </Route> */}
         </Routes>

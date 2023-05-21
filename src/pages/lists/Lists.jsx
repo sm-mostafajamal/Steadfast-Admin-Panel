@@ -1,4 +1,4 @@
-import Datatable from "../../components/datatable/Datatable";
+import Jobs from "../../components/jobs/Jobs";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./style.scss";
@@ -9,7 +9,7 @@ const Lists = () => {
       <Sidebar />
       <div className="listContainer">
         <Navbar />
-        <Datatable />
+        <Jobs />
       </div>
     </div>
   );

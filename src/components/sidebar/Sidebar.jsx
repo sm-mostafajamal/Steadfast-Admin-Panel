@@ -1,16 +1,12 @@
 import "./style.scss";
 import {
-  AccountBoxOutlined,
+  Add,
   CircleNotificationsOutlined,
-  CreditCardOutlined,
+  ContactMail,
   Dashboard,
-  DeliveryDiningOutlined,
-  Inventory2Outlined,
   LogoutOutlined,
-  MonitorHeartOutlined,
   PeopleAltOutlined,
-  SettingsOutlined,
-  ShowChart,
+  Work,
 } from "@mui/icons-material";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
@@ -29,59 +25,42 @@ const Sidebar = () => {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
-          <li>
-            <Dashboard className="icon" />
-            <span>Dashboard</span>
-          </li>
-          <p className="title">LISTS</p>
-          <Link to="/users" style={{ textDecoration: "none" }}>
+          <Link to="/" style={{ textDecoration: "none" }}>
             <li>
-              <PeopleAltOutlined className="icon" />
-              <span>Users</span>
+              <Dashboard className="icon" />
+              <span>Dashboard</span>
             </li>
           </Link>
-          <Link to="/products" style={{ textDecoration: "none" }}>
+          <p className="title">MENU</p>
+          <Link to="/jobs" style={{ textDecoration: "none" }}>
             <li>
-              <Inventory2Outlined className="icon" />
-              <span>Products</span>
+              <Work className="icon" />
+              <span>Jobs</span>
+            </li>
+          </Link>
+          <Link to="jobs/create-job/new" style={{ textDecoration: "none" }}>
+            <li>
+              <Add className="icon" />
+              <span>Create Job</span>
             </li>
           </Link>
           <li>
-            <CreditCardOutlined className="icon" />
-            <span>Orders</span>
+            <PeopleAltOutlined className="icon" />
+            <span>Applied Form</span>
           </li>
           <li>
-            <DeliveryDiningOutlined className="icon" />
-            <span>Delivery</span>
+            <ContactMail className="icon" />
+            <span>Contact Form</span>
           </li>
           <p className="title">USEFUL</p>
-          <li>
-            <ShowChart className="icon" />
-            <span>Stats</span>
-          </li>
           <li>
             <CircleNotificationsOutlined className="icon" />
             {/* <NotificationsOutlinedIcon /> */}
             <span>Notifications</span>
           </li>
-          <p className="title">SERVICE</p>
-
-          <li>
-            <MonitorHeartOutlined className="icon" />
-            <span>System Health</span>
-          </li>
-          <li>
-            <SettingsOutlined className="icon" />
-            <span>Settings</span>
-          </li>
-          <p className="title">USER</p>
-          <li>
-            <AccountBoxOutlined className="icon" />
-            <span>Profile</span>
-          </li>
           <li>
             <LogoutOutlined className="icon" />
-            <span>Logout</span>
+            <span style={{ fontSize: "18px", color: "black" }}>Logout</span>
           </li>
         </ul>
       </div>
