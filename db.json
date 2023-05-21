@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Junior Recruiter",
-      "jobType": "Full-Time, Remote",
+      "type": "Full-Time, Remote",
       "skills": "Computer skill, English Communication, Human Resource Management, jobposting site, Office Management, Recruitment Procedure, Working under pressure,",
       "compensation": "The salary is negotiable.",
       "location": "Anywhere in Bangladesh (100% Remote)",
@@ -16,7 +16,7 @@
     {
       "id": 2,
       "title": "Principal Digital Marketing Manager",
-      "jobType": "Full-Time, Remote",
+      "type": "Full-Time, Remote",
       "skills": "Data Analysis, Excellent sales and negotiation skills, Networking and Communications Skills, Project Management Skills, Recruiting Sales, Sales & Marketing, Smart presentation Skill",
       "compensation": "The salary is negotiable.",
       "location": "Anywhere in Bangladesh (100% Remote)",
@@ -29,7 +29,7 @@
     {
       "id": 3,
       "title": "Data Analyst",
-      "jobType": "Full-Time, Remote",
+      "type": "Full-Time, Remote",
       "skills": "Proven data entry work experience, as a Data Analyst or Business Analyst, Experience with MS Office and data programs, Familiarity with administrative duties, Typing speed and accuracy, Excellent knowledge of correct spelling, grammar, and punctuation, Attention to detail, Confidentiality, Organization skills, with an ability to stay focused on assigned tasks",
       "compensation": "The salary is negotiable.",
       "location": "Anywhere in Bangladesh (100% Remote)",
@@ -38,25 +38,13 @@
       "jobResponsibilities": "\n-Insert customer and account data by inputting text-based and numerical information from source documents within time limits \n-Compile, verify accuracy, and sort information according to priorities to prepare source data for computer entry\n-Review data for deficiencies or errors, correct any incompatibilities if possible, and check the output\n-Research and obtain further information for incomplete documents\n-Apply data program techniques and procedures\n-Generate reports, store completed work in designated locations, and perform backup operations\n-Keep information confidential\n-Respond to queries for information and access relevant files\n-Comply with data integrity and security policies\n-Requirements and skills\n-Proven data entry work experience, as a Data Analyst or Business Analyst,\n-Experience with MS Office and data programs\n-Familiarity with administrative duties \n-Typing speed and accuracy \n-Excellent knowledge of correct spelling, grammar, and punctuation \n-Attention to detail \n-Confidentiality \n-Organization skills, with an ability to stay focused on assigned tasks \n-Must-Have a Certificate which indicates experience as Data Analyst or Business Analyst. \n-Interested to work in the USA Based time Schedule (06:00 pm - 03:00 am/ 7:00 pm-4:00 am) \n-Full-Time Job, 100% Remote Work, (Work from Home)\nEducational Level: Minimum Bachelor's Degree from any Reputed Organization.\nBelongings: Laptop/Desktop, High-Speed Internet (The organization will not provide these)\nWeekend: Saturday & Sunday\nLanguage: English (Conversational)",
       "additionalRequirements": "\n-Age 30 to 40 years\n-5-7 years of sales experience within the Recruiting and Staffing industry in the USA or Sales and\n-Marketing experience in the Technology industry.\n-Canada/UK Market experience will also get priority.\n-Entrepreneurial mindset with a true sales hunter approach.\n-Strong established relationships among key influencers within the Recruiting and Staffing Industry.\n-Strong communication and interpersonal skills.\n-Business management in technology and digital marketing.\n-Tech-savvy, proficient in using tools such as Zoom, Dynamics CRM, and MS Office Suite (Excel, PowerPoint, Outlook)\n-Proven working experience as a business development manager, sales executive, or a relevant role\n-Proven sales track record. selling recruiting solutions or services to large enterprises.",
       "compensationAndBenefits": "\n-Performance bonus, Weekly 2 holidays, Gratuity, Overtime allowance \n-Salary Review: Half Yearly\n-Festival Bonus: 2 (Yearly)\n-Attendance Bonus Per Month\n-Other's Leave as per Labor Law "
-    }
-  ],
-  "apply": [
+    },
     {
-      "id": 1,
-      "jobTitle": "Junior Recruiter",
-      "name": "test",
-      "email": "test@email.com",
-      "number": "018",
-      "message": "hello",
-      "resume": null
-    }
-  ],
-  "contact": [
-    {
-      "id": 1,
-      "name": "test",
-      "email": "test@email.com",
-      "number": "018"
+      "title": "Junior Recruiter",
+      "type": "Full-Time, Remote",
+      "location": "Anywhere in Bangladesh (100% Remote)",
+      "desc": "<p><strong>Salary:</strong> The salary is negotiable.</p><p><strong>Skills: </strong>Computer skill, English Communication, Human Resource Management, jobposting site, Office Management, Recruitment Procedure, Working under pressure,</p><p><strong>Key Selling Points: </strong>Steadfast Communications is looking for some youthful motivated, and energetic people who will be responsible for hiring staff in the USA</p><p><br></p><p><strong>Job Context: </strong>Steadfast Communications is a sister concern of \"Steadfast International Services, LLC\" We are looking for a \"Junior Recruiter\" Full-Time Job, 100% Remote Work, (Work from Home) Educational Level: Minimum Bachelor's Degree from any Reputed Organization. (Human resourceManagement Background candidate will get priority) Belongings: Laptop/Desktop, High-Speed Internet (These will not be provided by the organization) Compensation: 8,000-10,000/Bdt Per Month Office Hours: Monday-Friday (06:00 pm - 03:00 am / 7:00 pm - 4:00 am) Weekend: Saturday &amp; Sunday Language: English (Conversational) Steadfast Communications a sister concern of Steadfast International Services, LLC is looking for aJunior Recruiter, who will be Youthful, Motivated, energetic, efficient in English speaking &amp; mostimportantly passionate about recruiting. Fresh graduates who are looking for some experience inHuman Resource Field to build their Careers.</p><p><br></p><p><strong>Job Responsibilities: </strong></p><ul><li>Work on Live job projects &amp; Source candidates from Linkedin, Indeed, Dice and Monster.</li><li>Source Candidates by Cold Calling.</li><li>Candidate's Resume Collecting, Screening &amp; Short-listing.</li><li>Maintain Database for particular assigned projects.</li><li>Doing E-mail Campaigns to find candidates for different projects.</li><li>Establish engagement with the candidates in every possible way.</li><li>Overall understand the industry &amp; Follow the industry practices</li></ul><p><br></p><p><strong>Additional Requirements:</strong></p><ul><li>Age 23 to 32 years</li><li>Candidate should have sound knowledge of Corporate Culture.</li><li>Candidate should have English-speaking skills.</li><li>Interested to work in USA Based time Schedule (06:00 pm - 03:00 am/ 7:00 pm-4:00 am)</li></ul><p><strong>Compensation &amp; Other Benefits: </strong></p><ul><li>Performance bonus, Weekly 2 holidays, Gratuity, Over time allowance</li><li>Salary Review: Half Yearly Festival Bonus: 2 (Yearly)</li><li>Attendance Bonus Per Month</li><li>Other's Leave as per Labor Law.</li></ul>",
+      "id": 14
     }
   ]
 }

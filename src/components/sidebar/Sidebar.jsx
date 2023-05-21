@@ -38,7 +38,7 @@ const Sidebar = () => {
               <span>Jobs</span>
             </li>
           </Link>
-          <Link to="jobs/create-job/new" style={{ textDecoration: "none" }}>
+          <Link to="/jobs/post" style={{ textDecoration: "none" }}>
             <li>
               <Add className="icon" />
               <span>Create Job</span>

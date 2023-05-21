@@ -1,3 +1,13 @@
 .table {
   // background-color: #eae7dc;
+  .head > th {
+    padding: 10px;
+  }
+  .body > td {
+    padding: 8px;
+  }
+  .action {
+    display: flex;
+    justify-content: space-around;
+  }
 }

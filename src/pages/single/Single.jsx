@@ -1,25 +1,60 @@
-import Chart from "../../components/chart/Chart";
+import { useParams } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./style.scss";
+import Parser from "html-react-parser";
+import { useSelector } from "react-redux";
+import {
+  LocationCity,
+  LocationOnOutlined,
+  WorkOutlineOutlined,
+} from "@mui/icons-material";
 
 const Single = () => {
+  const jobs = useSelector(({ jobs }) => jobs);
+  const id = Number(useParams().jobId);
+  const job = jobs.find((job) => job.id === id);
+
   return (
     <div className="single">
       <Sidebar />
       <div className="singleContainer">
         <Navbar />
-        <div className="top">
-          <div className="left">
+        <div
+          className="jobContainer"
+          // dangerouslySetInnerHTML={{ __html: job.desc }}
+        >
+          <h1>{job.title}</h1>
+          <span>
+            <WorkOutlineOutlined style={{ "padding-right": "10px" }} />
+            {job.type}
+          </span>
+          <span>
+            <LocationOnOutlined style={{ "padding-right": "10px" }} />
+            {job.location}
+          </span>
+          <article>{Parser(job.desc)}</article>
+          {/* {console.log(typeof job.jobDesc) } */}
+          {/* <div className="left">
             <button className="editButton">Edit</button>
             <h1 className="title">Information</h1>
-            <div className="item">
-              <img
+            <div className="item"> */}
+          {/* <div className="left">
+            <img
+              src={
+                file
+                  ? URL.createObjectURL(file)
+                  : "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-0.png"
+              }
+              alt=""
+            />
+          </div> */}
+          {/* <img
                 src="https://avatars.githubusercontent.com/u/68806424?v=4"
                 alt=""
                 className="itemImg"
-              />
-              <div className="details">
+              /> */}
+          {/* <div className="details">
                 <h1 className="itemTitle">SM. Mostafa Jamal</h1>
                 <div className="detailItem">
                   <span className="itemKey">Email:</span>
@@ -39,14 +74,7 @@ const Single = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="right">
-            <Chart aspect={3 / 1} title="User Spending Last 6 Months History" />
-          </div>
-        </div>
-        <div className="bottom">
-          <h1 className="title">Last Transections</h1>
-          {/* <List /> */}
+          </div> */}
         </div>
       </div>
     </div>

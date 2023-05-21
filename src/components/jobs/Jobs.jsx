@@ -6,9 +6,9 @@ const Jobs = () => {
   return (
     <div className="jobs">
       <div className="addJob">
-        Add New Job
-        <Link to="create-job/new" style={{ textDecoration: "none" }}>
-          <button>Add New</button>
+        Post New Job
+        <Link to="/jobs/post" style={{ textDecoration: "none" }}>
+          <button>Post</button>
         </Link>
       </div>
       <div className="jobTable">

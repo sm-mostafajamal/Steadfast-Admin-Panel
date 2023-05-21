@@ -15,52 +15,41 @@
 
         font-size: 20px;
       }
-      .left {
-        flex: 1;
-        text-align: center;
-        img {
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          object-fit: cover;
-        }
+    }
+    form.editor {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      input {
+        height: 20px;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.336);
+        margin: 20px 0;
+        width: 90%;
+        font-size: 18px;
+        outline: none;
       }
-      .right {
-        flex: 2;
-        form {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 20px;
-          justify-content: space-around;
-          .formInput {
-            width: 40%;
-            label {
-              display: flex;
-              align-items: center;
-              gap: 10px;
-              .icon {
-                cursor: pointer;
-              }
-            }
-            input {
-              width: 100%;
-              padding: 5px;
-              border: none;
-              border-bottom: 1px solid gray;
-              background-color: transparent;
-            }
-          }
-          button {
-            width: 150px;
-            padding: 10px;
-            border: none;
-            background-color: teal;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-          }
-        }
+      .quill {
+        width: 95%;
+        height: 300px;
+        margin: auto;
+        border: none;
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        padding-bottom: 40px;
+      }
+      .postBtn {
+        width: 250px;
+        padding: 15px;
+        border: none;
+        background-color: teal;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 18px;
       }
     }
   }

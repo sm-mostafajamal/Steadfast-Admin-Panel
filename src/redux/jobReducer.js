@@ -5,12 +5,16 @@ const jobSlice = createSlice({
   initialState: [],
   reducers: {
     appendJob: (state, action) => {
-      // return action.payload;
       return action.payload;
+      // state.jobs = action.payload;
     },
+    // createNewJob: (state, action) => {
+    //   const content = action.payload;
+    //   state.createJob = { ...content };
+    // },
   },
 });
 
-export const { appendJob } = jobSlice.actions;
+export const { appendJob, createNewJob } = jobSlice.actions;
 
 export default jobSlice.reducer;
