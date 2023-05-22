@@ -2,9 +2,25 @@ import { useSelector } from "react-redux";
 import Button from "../button/Button";
 import "./style.scss";
 import { Link } from "react-router-dom";
+import { deletePost } from "../../server/jobsServer";
+import { useMutation, useQueryClient } from "react-query";
 const Table = () => {
-  const jobs = useSelector((jobs) => jobs.jobs);
+  const jobs = useSelector(({ jobs }) => jobs.jobLists);
+  console.log(jobs);
+  const queryClient = useQueryClient();
+  const deletePostMutate = useMutation(deletePost, {
+    onSuccess: (deletePost) => {
+      const jobs = queryClient.getQueriesData("jobs");
+      return queryClient.setQueryData(
+        "jobs",
+        jobs.filter((j) => j.id !== deletePost)
+      );
+    },
+  });
+  // const handleClick = (job) => {
+  //   deletePost(job.id);
 
+  // };
   return (
     <>
       <table cellSpacing="0" className="table">
@@ -27,7 +43,10 @@ const Table = () => {
                 <Link to={`/jobs/${job.id}`}>
                   <Button name="View" />
                 </Link>
-                <Button name="Delete" />
+                <Button
+                  onClick={() => deletePostMutate.mutate(job.id)}
+                  name="Delete"
+                />
               </td>
             </tr>
           ))}

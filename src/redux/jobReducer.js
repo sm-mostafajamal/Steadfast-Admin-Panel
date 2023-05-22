@@ -2,16 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const jobSlice = createSlice({
   name: "jobs",
-  initialState: [],
+  initialState: {
+    jobLists: [],
+  },
   reducers: {
     appendJob: (state, action) => {
-      return action.payload;
-      // state.jobs = action.payload;
+      state.jobLists = action.payload;
     },
-    // createNewJob: (state, action) => {
-    //   const content = action.payload;
-    //   state.createJob = { ...content };
-    // },
   },
 });
 

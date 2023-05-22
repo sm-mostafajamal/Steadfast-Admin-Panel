@@ -4,14 +4,11 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import "./style.scss";
 import Parser from "html-react-parser";
 import { useSelector } from "react-redux";
-import {
-  LocationCity,
-  LocationOnOutlined,
-  WorkOutlineOutlined,
-} from "@mui/icons-material";
+import { LocationOnOutlined, WorkOutlineOutlined } from "@mui/icons-material";
 
 const Single = () => {
-  const jobs = useSelector(({ jobs }) => jobs);
+  const jobs = useSelector(({ jobs }) => jobs.jobLists);
+
   const id = Number(useParams().jobId);
   const job = jobs.find((job) => job.id === id);
 
@@ -20,17 +17,14 @@ const Single = () => {
       <Sidebar />
       <div className="singleContainer">
         <Navbar />
-        <div
-          className="jobContainer"
-          // dangerouslySetInnerHTML={{ __html: job.desc }}
-        >
+        <div className="jobContainer">
           <h1>{job.title}</h1>
           <span>
-            <WorkOutlineOutlined style={{ "padding-right": "10px" }} />
+            <WorkOutlineOutlined style={{ paddingRight: "10px" }} />
             {job.type}
           </span>
           <span>
-            <LocationOnOutlined style={{ "padding-right": "10px" }} />
+            <LocationOnOutlined style={{ paddingRight: "10px" }} />
             {job.location}
           </span>
           <article>{Parser(job.desc)}</article>

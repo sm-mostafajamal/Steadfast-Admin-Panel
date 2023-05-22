@@ -9,28 +9,30 @@ import { newPost } from "../../server/jobsServer";
 
 const New = ({ title }) => {
   const queryClient = useQueryClient();
+  const [value, setValue] = useState("");
+
   const newJobPost = useMutation(newPost, {
     onSuccess: (newPost) => {
       const jobs = queryClient.getQueryData("jobs");
       queryClient.setQueryData("jobs", jobs.concat(newPost));
     },
   });
-  const [value, setValue] = useState({
-    title: "",
-    type: "",
-    location: "",
-    desc: "",
-  });
+
   const handleForm = (e) => {
     e.preventDefault();
-    newJobPost.mutate({ ...value });
-    setValue({
-      title: "",
-      type: "",
-      location: "",
-      desc: "",
-    });
+    const content = {
+      title: e.target.title.value,
+      type: e.target.type.value,
+      location: e.target.location.value,
+      desc: value,
+    };
+    newJobPost.mutate(content);
+    e.target.title.value = "";
+    e.target.type.value = "";
+    e.target.location.value = "";
+    setValue("");
   };
+
   return (
     <div className="new">
       <Sidebar />
@@ -40,35 +42,14 @@ const New = ({ title }) => {
           <h1>{title}</h1>
         </div>
         <form action="POST" onSubmit={handleForm} className="editor">
-          <input
-            name="title"
-            value={value.title}
-            placeholder="Job Title"
-            onChange={(e) =>
-              setValue({ ...value, [e.target.name]: e.target.value })
-            }
-          />
-          <input
-            name="type"
-            placeholder="Job Type"
-            value={value.type}
-            onChange={(e) =>
-              setValue({ ...value, [e.target.name]: e.target.value })
-            }
-          />
-          <input
-            name="location"
-            placeholder="Job Location"
-            value={value.location}
-            onChange={(e) =>
-              setValue({ ...value, [e.target.name]: e.target.value })
-            }
-          />
+          <input name="title" placeholder="Job Title" />
+          <input name="type" placeholder="Job Type" />
+          <input name="location" placeholder="Job Location" />
           <ReactQuill
             theme="snow"
             placeholder="Job Description"
-            value={value.desc}
-            onChange={(e) => setValue({ ...value, desc: e })}
+            value={value}
+            onChange={(e) => setValue(e)}
           />
           <button className="postBtn">Post</button>
         </form>

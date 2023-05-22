@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Junior Recruiter",
-      "type": "Full-Time, Remote",
+      "type": "Full-Time Job, 100% Remote Work, (Work from Home)",
       "skills": "Computer skill, English Communication, Human Resource Management, jobposting site, Office Management, Recruitment Procedure, Working under pressure,",
       "compensation": "The salary is negotiable.",
       "location": "Anywhere in Bangladesh (100% Remote)",
@@ -16,7 +16,7 @@
     {
       "id": 2,
       "title": "Principal Digital Marketing Manager",
-      "type": "Full-Time, Remote",
+      "type": "Full-Time Job, 100% Remote Work, (Work from Home)",
       "skills": "Data Analysis, Excellent sales and negotiation skills, Networking and Communications Skills, Project Management Skills, Recruiting Sales, Sales & Marketing, Smart presentation Skill",
       "compensation": "The salary is negotiable.",
       "location": "Anywhere in Bangladesh (100% Remote)",
@@ -29,7 +29,7 @@
     {
       "id": 3,
       "title": "Data Analyst",
-      "type": "Full-Time, Remote",
+      "type": "Full-Time Job, 100% Remote Work, (Work from Home)",
       "skills": "Proven data entry work experience, as a Data Analyst or Business Analyst, Experience with MS Office and data programs, Familiarity with administrative duties, Typing speed and accuracy, Excellent knowledge of correct spelling, grammar, and punctuation, Attention to detail, Confidentiality, Organization skills, with an ability to stay focused on assigned tasks",
       "compensation": "The salary is negotiable.",
       "location": "Anywhere in Bangladesh (100% Remote)",
@@ -40,11 +40,18 @@
       "compensationAndBenefits": "\n-Performance bonus, Weekly 2 holidays, Gratuity, Overtime allowance \n-Salary Review: Half Yearly\n-Festival Bonus: 2 (Yearly)\n-Attendance Bonus Per Month\n-Other's Leave as per Labor Law "
     },
     {
-      "title": "Junior Recruiter",
-      "type": "Full-Time, Remote",
-      "location": "Anywhere in Bangladesh (100% Remote)",
-      "desc": "<p><strong>Salary:</strong> The salary is negotiable.</p><p><strong>Skills: </strong>Computer skill, English Communication, Human Resource Management, jobposting site, Office Management, Recruitment Procedure, Working under pressure,</p><p><strong>Key Selling Points: </strong>Steadfast Communications is looking for some youthful motivated, and energetic people who will be responsible for hiring staff in the USA</p><p><br></p><p><strong>Job Context: </strong>Steadfast Communications is a sister concern of \"Steadfast International Services, LLC\" We are looking for a \"Junior Recruiter\" Full-Time Job, 100% Remote Work, (Work from Home) Educational Level: Minimum Bachelor's Degree from any Reputed Organization. (Human resourceManagement Background candidate will get priority) Belongings: Laptop/Desktop, High-Speed Internet (These will not be provided by the organization) Compensation: 8,000-10,000/Bdt Per Month Office Hours: Monday-Friday (06:00 pm - 03:00 am / 7:00 pm - 4:00 am) Weekend: Saturday &amp; Sunday Language: English (Conversational) Steadfast Communications a sister concern of Steadfast International Services, LLC is looking for aJunior Recruiter, who will be Youthful, Motivated, energetic, efficient in English speaking &amp; mostimportantly passionate about recruiting. Fresh graduates who are looking for some experience inHuman Resource Field to build their Careers.</p><p><br></p><p><strong>Job Responsibilities: </strong></p><ul><li>Work on Live job projects &amp; Source candidates from Linkedin, Indeed, Dice and Monster.</li><li>Source Candidates by Cold Calling.</li><li>Candidate's Resume Collecting, Screening &amp; Short-listing.</li><li>Maintain Database for particular assigned projects.</li><li>Doing E-mail Campaigns to find candidates for different projects.</li><li>Establish engagement with the candidates in every possible way.</li><li>Overall understand the industry &amp; Follow the industry practices</li></ul><p><br></p><p><strong>Additional Requirements:</strong></p><ul><li>Age 23 to 32 years</li><li>Candidate should have sound knowledge of Corporate Culture.</li><li>Candidate should have English-speaking skills.</li><li>Interested to work in USA Based time Schedule (06:00 pm - 03:00 am/ 7:00 pm-4:00 am)</li></ul><p><strong>Compensation &amp; Other Benefits: </strong></p><ul><li>Performance bonus, Weekly 2 holidays, Gratuity, Over time allowance</li><li>Salary Review: Half Yearly Festival Bonus: 2 (Yearly)</li><li>Attendance Bonus Per Month</li><li>Other's Leave as per Labor Law.</li></ul>",
-      "id": 14
+      "title": "as",
+      "type": "asdf",
+      "location": "asdf",
+      "desc": "<p>adsf</p>",
+      "id": 4
+    },
+    {
+      "title": "testing",
+      "type": "testing ",
+      "location": "test",
+      "desc": "<p>testing my query</p>",
+      "id": 5
     }
   ]
 }

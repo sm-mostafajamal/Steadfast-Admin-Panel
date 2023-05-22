@@ -1,9 +1,10 @@
 import "./style.scss";
 
-const Button = ({ name }) => {
+const Button = ({ name, onClick }) => {
   return (
     <div>
       <button
+        onClick={onClick}
         className="button"
         style={
           name === "Delete"
