@@ -17,7 +17,9 @@ import { appendJob } from "./redux/jobReducer";
 function App() {
   const dispatch = useDispatch();
   const { state } = useContext(DarkModeContext);
-  const { isLoading, data } = useQuery("jobs", getAllJobs);
+  const { isLoading, data } = useQuery("jobs", getAllJobs, {
+    refetchOnWindowFocus: false,
+  });
   useEffect(() => {
     if (data) {
       dispatch(appendJob(data));

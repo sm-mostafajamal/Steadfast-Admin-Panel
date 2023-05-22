@@ -6,15 +6,16 @@ import { deletePost } from "../../server/jobsServer";
 import { useMutation, useQueryClient } from "react-query";
 const Table = () => {
   const jobs = useSelector(({ jobs }) => jobs.jobLists);
-  console.log(jobs);
+  // console.log(jobs);
+
   const queryClient = useQueryClient();
   const deletePostMutate = useMutation(deletePost, {
-    onSuccess: (deletePost) => {
-      const jobs = queryClient.getQueriesData("jobs");
-      return queryClient.setQueryData(
-        "jobs",
-        jobs.filter((j) => j.id !== deletePost)
-      );
+    onSuccess: () => {
+      // const jobs = queryClient.getQueriesData("jobs");
+      // const updatedJobLists = jobs.filter((j) => j.id !== id);
+      // queryClient.setQueryData(["jobs", id], updatedJobLists);
+      queryClient.invalidateQueries("jobs");
+      // return jobs;
     },
   });
   // const handleClick = (job) => {

@@ -11,7 +11,7 @@ const New = ({ title }) => {
   const queryClient = useQueryClient();
   const [value, setValue] = useState("");
 
-  const newJobPost = useMutation(newPost, {
+  const newJobMutation = useMutation(newPost, {
     onSuccess: (newPost) => {
       const jobs = queryClient.getQueryData("jobs");
       queryClient.setQueryData("jobs", jobs.concat(newPost));
@@ -26,7 +26,7 @@ const New = ({ title }) => {
       location: e.target.location.value,
       desc: value,
     };
-    newJobPost.mutate(content);
+    newJobMutation.mutate(content);
     e.target.title.value = "";
     e.target.type.value = "";
     e.target.location.value = "";
