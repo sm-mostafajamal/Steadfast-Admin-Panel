@@ -4,27 +4,21 @@ import "./style.scss";
 import { Link } from "react-router-dom";
 import { deletePost } from "../../server/jobsServer";
 import { useMutation, useQueryClient } from "react-query";
+import Pagination from "../pagination/Pagination";
+
 const Table = () => {
-  const jobs = useSelector(({ jobs }) => jobs.jobLists);
-  // console.log(jobs);
+  const { jobsToShow } = useSelector((state) => state.jobs);
 
   const queryClient = useQueryClient();
   const deletePostMutate = useMutation(deletePost, {
     onSuccess: () => {
-      // const jobs = queryClient.getQueriesData("jobs");
-      // const updatedJobLists = jobs.filter((j) => j.id !== id);
-      // queryClient.setQueryData(["jobs", id], updatedJobLists);
       queryClient.invalidateQueries("jobs");
-      // return jobs;
     },
   });
-  // const handleClick = (job) => {
-  //   deletePost(job.id);
 
-  // };
   return (
     <>
-      <table cellSpacing="0" className="table">
+      <table cellSpacing="0" frame="void" rules="rows" className="table">
         <thead>
           <tr className="head">
             <th style={{ width: "30%" }}>Job Title</th>
@@ -35,7 +29,7 @@ const Table = () => {
         </thead>
 
         <tbody>
-          {jobs.map((job) => (
+          {jobsToShow.map((job) => (
             <tr className="body" key={job.id}>
               <td>{job.title}</td>
               <td>{job.location}</td>
@@ -54,7 +48,9 @@ const Table = () => {
         </tbody>
         <tfoot>
           <tr>
-            <td>Footer</td>
+            <td className="footer">
+              <Pagination />
+            </td>
           </tr>
         </tfoot>
       </table>

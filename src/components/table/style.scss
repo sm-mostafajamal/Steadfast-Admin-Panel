@@ -1,16 +1,16 @@
 .table {
   // background-color: #eae7dc;
   width: 100%;
+  height: 70vh;
   .head > th {
     padding: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.486);
     border-left: none;
     border-right: none;
   }
   .body > td {
+    align-items: center;
     padding: 8px;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.486);
   }
   .action {
     display: flex;

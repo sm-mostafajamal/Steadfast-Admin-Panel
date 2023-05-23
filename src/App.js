@@ -12,7 +12,7 @@ import { DarkModeContext } from "./context/DarkModeContext";
 import { getAllJobs } from "./server/jobsServer";
 import { useQuery } from "react-query";
 import { useDispatch } from "react-redux";
-import { appendJob } from "./redux/jobReducer";
+import { appendJob, setPageNumber } from "./redux/jobReducer";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +23,7 @@ function App() {
   useEffect(() => {
     if (data) {
       dispatch(appendJob(data));
+      dispatch(setPageNumber(1));
     }
   }, [data, dispatch]);
 
