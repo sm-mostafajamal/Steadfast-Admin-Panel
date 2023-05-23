@@ -5,7 +5,7 @@ const jobSlice = createSlice({
   initialState: {
     jobLists: [],
     pageNumbers: [],
-    currentPageNumber: null,
+    currentPageNumber: 1,
     jobsToShow: [],
   },
   reducers: {

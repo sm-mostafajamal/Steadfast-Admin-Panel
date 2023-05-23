@@ -16,6 +16,7 @@ const Pagination = () => {
         <button
           key={pageNumber}
           onClick={(e) => dispatch(setPageNumber(Number(e.target.innerText)))}
+          className={pageNumber === currentPageNumber && "active"}
         >
           {pageNumber}
         </button>

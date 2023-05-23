@@ -1,14 +1,15 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../button/Button";
 import "./style.scss";
 import { Link } from "react-router-dom";
 import { deletePost } from "../../server/jobsServer";
 import { useMutation, useQueryClient } from "react-query";
 import Pagination from "../pagination/Pagination";
+import { setPageNumber } from "../../redux/jobReducer";
 
 const Table = () => {
-  const { jobsToShow } = useSelector((state) => state.jobs);
-
+  const { jobsToShow, currentPageNumber } = useSelector((state) => state.jobs);
+  const dispatch = useDispatch();
   const queryClient = useQueryClient();
   const deletePostMutate = useMutation(deletePost, {
     onSuccess: () => {
@@ -16,6 +17,10 @@ const Table = () => {
     },
   });
 
+  const handleCLick = (job) => {
+    deletePostMutate.mutate(job.id);
+    dispatch(setPageNumber(currentPageNumber));
+  };
   return (
     <>
       <table cellSpacing="0" frame="void" rules="rows" className="table">
@@ -38,10 +43,7 @@ const Table = () => {
                 <Link to={`/jobs/${job.id}`}>
                   <Button name="View" />
                 </Link>
-                <Button
-                  onClick={() => deletePostMutate.mutate(job.id)}
-                  name="Delete"
-                />
+                <Button onClick={() => handleCLick(job)} name="Delete" />
               </td>
             </tr>
           ))}

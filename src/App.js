@@ -11,10 +11,11 @@ import { useContext, useEffect } from "react";
 import { DarkModeContext } from "./context/DarkModeContext";
 import { getAllJobs } from "./server/jobsServer";
 import { useQuery } from "react-query";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { appendJob, setPageNumber } from "./redux/jobReducer";
 
 function App() {
+  const { currentPageNumber } = useSelector((state) => state.jobs);
   const dispatch = useDispatch();
   const { state } = useContext(DarkModeContext);
   const { isLoading, data } = useQuery("jobs", getAllJobs, {
@@ -23,7 +24,7 @@ function App() {
   useEffect(() => {
     if (data) {
       dispatch(appendJob(data));
-      dispatch(setPageNumber(1));
+      dispatch(setPageNumber(currentPageNumber));
     }
   }, [data, dispatch]);
 
