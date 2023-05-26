@@ -11,13 +11,18 @@ const jobSlice = createSlice({
   reducers: {
     appendJob: (state, action) => {
       const jobsPerPage = 5;
-      const jobs = action.payload;
+      const jobs = state.jobLists;
       state.pageNumbers = [];
 
       for (let i = 1; i <= Math.ceil(jobs.length / jobsPerPage); i++) {
         state.pageNumbers.push(i);
       }
+
       state.jobLists = action.payload;
+    },
+    appendNewJob: (state, action) => {
+      const jobs = state.jobLists.filter((j) => j.id !== action.payload.id);
+      state.jobLists = [...jobs, action.payload];
     },
     setPageNumber: (state, action) => {
       state.currentPageNumber = action.payload;
@@ -33,6 +38,6 @@ const jobSlice = createSlice({
   },
 });
 
-export const { appendJob, setPageNumber } = jobSlice.actions;
+export const { appendJob, setPageNumber, appendNewJob } = jobSlice.actions;
 
 export default jobSlice.reducer;

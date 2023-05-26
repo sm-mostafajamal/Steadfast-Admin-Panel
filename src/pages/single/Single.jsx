@@ -2,16 +2,14 @@ import { useParams } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./style.scss";
-import Parser from "html-react-parser";
+import parse from "html-react-parser";
 import { useSelector } from "react-redux";
 import { LocationOnOutlined, WorkOutlineOutlined } from "@mui/icons-material";
 
 const Single = () => {
   const jobs = useSelector(({ jobs }) => jobs.jobLists);
-
-  const id = Number(useParams().jobId);
+  const id = Number(useParams().id);
   const job = jobs.find((job) => job.id === id);
-
   return (
     <div className="single">
       <Sidebar />
@@ -27,7 +25,7 @@ const Single = () => {
             <LocationOnOutlined style={{ paddingRight: "10px" }} />
             {job.location}
           </span>
-          <article>{Parser(job.desc)}</article>
+          <article>{parse(job.desc)}</article>
           {/* {console.log(typeof job.jobDesc) } */}
           {/* <div className="left">
             <button className="editButton">Edit</button>

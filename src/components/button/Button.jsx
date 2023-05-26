@@ -9,7 +9,9 @@ const Button = ({ name, onClick }) => {
         style={
           name === "Delete"
             ? { backgroundColor: "red" }
-            : { backgroundColor: "teal" }
+            : name === "View"
+            ? { backgroundColor: "teal" }
+            : { backgroundColor: "#f1b502" }
         }
       >
         {name}

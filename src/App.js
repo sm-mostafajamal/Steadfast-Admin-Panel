@@ -39,7 +39,8 @@ function App() {
           <Route path="jobs">
             <Route index element={<Lists />} />
             <Route path="post" element={<New title="Post New Job" />} />
-            <Route path=":jobId" element={<Single />} />
+            <Route path="post/:id" element={<New title="Edit Job Post" />} />
+            <Route path=":id" element={<Single />} />
           </Route>
           <Route path="applied">
             <Route index element={<Lists />} />

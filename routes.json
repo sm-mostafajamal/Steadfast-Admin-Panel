@@ -1,3 +1,5 @@
 {
+  "/api/jobs/:id": "/jobs/:id",
+  "/api/jobs/": "/jobs/",
   "/jobs/post/": "/post/"
 }

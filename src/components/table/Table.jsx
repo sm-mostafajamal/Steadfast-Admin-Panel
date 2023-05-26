@@ -11,13 +11,14 @@ const Table = () => {
   const { jobsToShow, currentPageNumber } = useSelector((state) => state.jobs);
   const dispatch = useDispatch();
   const queryClient = useQueryClient();
+
   const deletePostMutate = useMutation(deletePost, {
     onSuccess: () => {
       queryClient.invalidateQueries("jobs");
     },
   });
 
-  const handleCLick = (job) => {
+  const handleDelete = (job) => {
     deletePostMutate.mutate(job.id);
     dispatch(setPageNumber(currentPageNumber));
   };
@@ -27,26 +28,38 @@ const Table = () => {
         <thead>
           <tr className="head">
             <th style={{ width: "30%" }}>Job Title</th>
-            <th style={{ width: "30%" }}>Location</th>
             <th style={{ width: "20%" }}>Job Type</th>
+            <th style={{ width: "30%" }}>Location</th>
             <th style={{ width: "20%" }}>Actions</th>
           </tr>
         </thead>
 
         <tbody>
-          {jobsToShow.map((job) => (
-            <tr className="body" key={job.id}>
-              <td>{job.title}</td>
-              <td>{job.location}</td>
-              <td>{job.type}</td>
-              <td className="action">
-                <Link to={`/jobs/${job.id}`}>
-                  <Button name="View" />
-                </Link>
-                <Button onClick={() => handleCLick(job)} name="Delete" />
-              </td>
+          {jobsToShow.length ? (
+            jobsToShow.map((job) => (
+              <tr className="body" key={job.id}>
+                <td>{job.title}</td>
+                <td>{job.type}</td>
+                <td>{job.location}</td>
+                <td className="action">
+                  <Link to={`/jobs/${job.id}`}>
+                    <Button name="View" />
+                  </Link>
+                  <Button onClick={() => handleDelete(job)} name="Delete" />
+                  <Link
+                    to={`/jobs/post/${job.id}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Button name="Edit" />
+                  </Link>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td>No jobs are available</td>
             </tr>
-          ))}
+          )}
         </tbody>
         <tfoot>
           <tr>

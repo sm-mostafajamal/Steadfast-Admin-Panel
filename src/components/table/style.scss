@@ -13,10 +13,11 @@
     align-items: center;
     padding: 5px;
     border: none;
-    height: 70px;
+    height: 100px;
   }
   .action {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
 }
