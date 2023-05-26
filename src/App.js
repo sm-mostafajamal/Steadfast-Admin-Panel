@@ -26,7 +26,7 @@ function App() {
       dispatch(appendJob(data));
       dispatch(setPageNumber(currentPageNumber));
     }
-  }, [data, dispatch]);
+  }, [data, dispatch, currentPageNumber]);
 
   return (
     <div className={state.darkMode ? "app dark" : "app light"}>

@@ -27,13 +27,14 @@ const New = ({ title }) => {
 
   const updateJobMutation = useMutation(update, {
     onSuccess: (updatePost) => {
-      const jobs = queryClient.getQueryData("jobs");
-      const job = jobs.find((j) => j.id === updatePost.id);
-      dispatch(appendNewJob(updatePost));
-      return queryClient.setQueryData(
-        "jobs",
-        jobs.concat({ ...job, ...updatePost })
-      );
+      queryClient.invalidateQueries("jobs");
+      // const jobs = queryClient.getQueryData("jobs");
+      // const job = jobs.find((j) => j.id === updatePost.id);
+      // dispatch(appendNewJob(updatePost));
+      // return queryClient.setQueryData(
+      //   "jobs",
+      //   jobs.concat({ ...job, ...updatePost })
+      // );
     },
   });
   const handleForm = (e) => {

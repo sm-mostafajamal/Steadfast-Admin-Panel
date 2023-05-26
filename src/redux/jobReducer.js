@@ -10,34 +10,33 @@ const jobSlice = createSlice({
   },
   reducers: {
     appendJob: (state, action) => {
-      const jobsPerPage = 5;
-      const jobs = state.jobLists;
-      state.pageNumbers = [];
-
-      for (let i = 1; i <= Math.ceil(jobs.length / jobsPerPage); i++) {
-        state.pageNumbers.push(i);
-      }
-
       state.jobLists = action.payload;
-    },
-    appendNewJob: (state, action) => {
-      const jobs = state.jobLists.filter((j) => j.id !== action.payload.id);
-      state.jobLists = [...jobs, action.payload];
     },
     setPageNumber: (state, action) => {
       state.currentPageNumber = action.payload;
       const jobPerPage = 5;
       const totalPage = Math.ceil(state.jobLists.length / jobPerPage);
+
+      if (state.jobLists.length <= 5) state.currentPageNumber = 1;
+
+      state.pageNumbers = [];
+      for (let i = 1; i <= totalPage; i++) {
+        state.pageNumbers.push(i);
+      }
+
       const lastJobIndex = state.currentPageNumber * jobPerPage;
       const firstJobIndex = lastJobIndex - jobPerPage;
 
-      if (state.currentPageNumber > 0 && state.currentPageNumber <= totalPage) {
+      if (
+        state.currentPageNumber >= 0 &&
+        state.currentPageNumber <= totalPage
+      ) {
         state.jobsToShow = state.jobLists.slice(firstJobIndex, lastJobIndex);
       }
     },
   },
 });
 
-export const { appendJob, setPageNumber, appendNewJob } = jobSlice.actions;
+export const { appendJob, setPageNumber } = jobSlice.actions;
 
 export default jobSlice.reducer;

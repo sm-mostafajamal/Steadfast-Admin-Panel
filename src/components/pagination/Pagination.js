@@ -6,7 +6,6 @@ import "./style.scss";
 const Pagination = () => {
   const dispatch = useDispatch();
   const { currentPageNumber, pageNumbers } = useSelector((state) => state.jobs);
-
   return (
     <div className="pagination">
       <button onClick={() => dispatch(setPageNumber(currentPageNumber - 1))}>
