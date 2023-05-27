@@ -6,24 +6,25 @@ import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { useMutation, useQueryClient } from "react-query";
 import { create, update } from "../../server/jobsServer";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { appendJob, appendNewJob } from "../../redux/jobReducer";
+import NewJob from "../../components/newJobForm/NewJob";
+import Edit from "../../components/editJobForm/Edit";
 
 const New = ({ title }) => {
-  const jobs = useSelector((state) => state.jobs.jobLists);
-  const id = Number(useParams().id);
-  const jobToEdit = jobs.find((j) => j.id === id);
-  const queryClient = useQueryClient();
   const [value, setValue] = useState("");
+  const jobs = useSelector((state) => state.jobs.jobLists);
+  const id = useParams().id;
+  const jobToEdit = jobs.find((j) => j.id == id);
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
   const newJobMutation = useMutation(create, {
     onSuccess: (createdPost) => {
       const jobs = queryClient.getQueryData("jobs");
       queryClient.setQueryData("jobs", jobs.concat(createdPost));
     },
   });
-
   const updateJobMutation = useMutation(update, {
     onSuccess: (updatePost) => {
       queryClient.invalidateQueries("jobs");
@@ -36,10 +37,10 @@ const New = ({ title }) => {
       // );
     },
   });
+
   const handleForm = (e) => {
     e.preventDefault();
     const content = {
-      id: id,
       title: e.target.title.value,
       type: e.target.type.value,
       location: e.target.location.value,
@@ -47,14 +48,10 @@ const New = ({ title }) => {
     };
 
     jobToEdit
-      ? updateJobMutation.mutate(content)
+      ? updateJobMutation.mutate({ id: id, ...content })
       : newJobMutation.mutate(content);
 
     navigate("/jobs");
-    setValue("");
-    e.target.title.value = "";
-    e.target.type.value = "";
-    e.target.location.value = "";
   };
 
   return (
@@ -65,30 +62,15 @@ const New = ({ title }) => {
         <div className="top">
           <h1>{title}</h1>
         </div>
-        <form action="POST" onSubmit={handleForm} className="editor">
-          <input
-            name="title"
-            defaultValue={jobToEdit ? jobToEdit.title : ""}
-            placeholder="Job Title"
+        {jobToEdit ? (
+          <Edit
+            jobToEdit={jobToEdit}
+            handleForm={handleForm}
+            setValue={setValue}
           />
-          <input
-            name="type"
-            defaultValue={jobToEdit ? jobToEdit.type : ""}
-            placeholder="Job Type"
-          />
-          <input
-            name="location"
-            defaultValue={jobToEdit ? jobToEdit.location : ""}
-            placeholder="Job Location"
-          />
-          <ReactQuill
-            theme="snow"
-            placeholder="Job Description"
-            defaultValue={jobToEdit ? jobToEdit.desc : value}
-            onChange={(e) => setValue(e)}
-          />
-          <button className="postBtn">{jobToEdit ? "Confirm" : "Post"}</button>
-        </form>
+        ) : (
+          <NewJob handleForm={handleForm} setValue={setValue} />
+        )}
       </div>
     </div>
   );

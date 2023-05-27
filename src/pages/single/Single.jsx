@@ -8,8 +8,9 @@ import { LocationOnOutlined, WorkOutlineOutlined } from "@mui/icons-material";
 
 const Single = () => {
   const jobs = useSelector(({ jobs }) => jobs.jobLists);
-  const id = Number(useParams().id);
-  const job = jobs.find((job) => job.id === id);
+  const id = useParams().id;
+  const job = jobs.find((job) => job.id == id);
+
   return (
     <div className="single">
       <Sidebar />
@@ -26,47 +27,6 @@ const Single = () => {
             {job.location}
           </span>
           <article>{parse(job.desc)}</article>
-          {/* {console.log(typeof job.jobDesc) } */}
-          {/* <div className="left">
-            <button className="editButton">Edit</button>
-            <h1 className="title">Information</h1>
-            <div className="item"> */}
-          {/* <div className="left">
-            <img
-              src={
-                file
-                  ? URL.createObjectURL(file)
-                  : "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-0.png"
-              }
-              alt=""
-            />
-          </div> */}
-          {/* <img
-                src="https://avatars.githubusercontent.com/u/68806424?v=4"
-                alt=""
-                className="itemImg"
-              /> */}
-          {/* <div className="details">
-                <h1 className="itemTitle">SM. Mostafa Jamal</h1>
-                <div className="detailItem">
-                  <span className="itemKey">Email:</span>
-                  <span className="itemValue">sm.mj@outlook.com</span>
-                </div>
-                <div className="detailItem">
-                  <span className="itemKey">Phone:</span>
-                  <span className="itemValue">+880 185 *** ****</span>
-                </div>
-                <div className="detailItem">
-                  <span className="itemKey">Address:</span>
-                  <span className="itemValue">Halishahar, Chittagong</span>
-                </div>
-                <div className="detailItem">
-                  <span className="itemKey">Country:</span>
-                  <span className="itemValue">Bangladesh</span>
-                </div>
-              </div>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>
