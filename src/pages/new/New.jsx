@@ -7,7 +7,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import { useMutation, useQueryClient } from "react-query";
 import { create, update } from "../../server/jobsServer";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { appendJob, appendNewJob } from "../../redux/jobReducer";
 
 const New = ({ title }) => {
@@ -16,8 +16,7 @@ const New = ({ title }) => {
   const jobToEdit = jobs.find((j) => j.id === id);
   const queryClient = useQueryClient();
   const [value, setValue] = useState("");
-  const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const newJobMutation = useMutation(create, {
     onSuccess: (createdPost) => {
       const jobs = queryClient.getQueryData("jobs");
@@ -51,10 +50,11 @@ const New = ({ title }) => {
       ? updateJobMutation.mutate(content)
       : newJobMutation.mutate(content);
 
+    navigate("/jobs");
+    setValue("");
     e.target.title.value = "";
     e.target.type.value = "";
     e.target.location.value = "";
-    setValue("");
   };
 
   return (
@@ -84,7 +84,7 @@ const New = ({ title }) => {
           <ReactQuill
             theme="snow"
             placeholder="Job Description"
-            value={jobToEdit ? jobToEdit.desc : value}
+            defaultValue={jobToEdit ? jobToEdit.desc : value}
             onChange={(e) => setValue(e)}
           />
           <button className="postBtn">{jobToEdit ? "Confirm" : "Post"}</button>
