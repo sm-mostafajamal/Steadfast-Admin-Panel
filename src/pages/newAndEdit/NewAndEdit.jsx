@@ -1,7 +1,5 @@
 import "./style.scss";
 import React, { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { useMutation, useQueryClient } from "react-query";
@@ -11,11 +9,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import NewJob from "../../components/newJobForm/NewJob";
 import Edit from "../../components/editJobForm/Edit";
 
-const New = ({ title }) => {
+const NewAndEdit = ({ title }) => {
   const [value, setValue] = useState("");
   const jobs = useSelector((state) => state.jobs.jobLists);
   const id = useParams().id;
-  const jobToEdit = jobs.find((j) => j.id == id);
+  const jobToEdit = jobs.find((j) => j.id === id);
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
@@ -76,4 +74,4 @@ const New = ({ title }) => {
   );
 };
 
-export default New;
+export default NewAndEdit;

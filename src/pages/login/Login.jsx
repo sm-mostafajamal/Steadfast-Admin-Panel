@@ -1,9 +1,9 @@
-import { useState } from "react";
+// import { useState } from "react";
 import "./style.scss";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPasword] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [password, setPasword] = useState("");
 
   const handleClick = (e) => {
     e.preventDefault();

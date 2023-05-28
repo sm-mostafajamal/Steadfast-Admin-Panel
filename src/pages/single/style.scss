@@ -5,8 +5,20 @@
     flex: 6;
     .jobContainer {
       padding: 50px;
-      h1 {
-        margin-bottom: 20px;
+      .header {
+        display: flex;
+        // align-items: center;
+
+        h1 {
+          margin-bottom: 20px;
+          margin-right: 40px;
+        }
+        .icon {
+          height: 40px;
+          width: 40px;
+          color: #e85a4f;
+          cursor: pointer;
+        }
       }
       span {
         display: flex;

@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import New from "./pages/new/New";
+import NewAndEdit from "./pages/newAndEdit/NewAndEdit";
 import Lists from "./pages/lists/Lists";
 import Single from "./pages/single/Single";
 // import { userInputs, productInputs } from "./formSource";
@@ -18,7 +18,7 @@ function App() {
   const { currentPageNumber } = useSelector((state) => state.jobs);
   const dispatch = useDispatch();
   const { state } = useContext(DarkModeContext);
-  const { isLoading, data } = useQuery("jobs", getAllJobs, {
+  const { data } = useQuery("jobs", getAllJobs, {
     refetchOnWindowFocus: false,
   });
   useEffect(() => {
@@ -38,8 +38,11 @@ function App() {
           <Route index element={<Home />} />
           <Route path="jobs">
             <Route index element={<Lists />} />
-            <Route path="post" element={<New title="Post New Job" />} />
-            <Route path="post/:id" element={<New title="Edit Job Post" />} />
+            <Route path="post" element={<NewAndEdit title="Post New Job" />} />
+            <Route
+              path="post/:id"
+              element={<NewAndEdit title="Edit Job Post" />}
+            />
             <Route path=":id" element={<Single />} />
           </Route>
           <Route path="applied">

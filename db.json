@@ -27,13 +27,6 @@
       "type": "test",
       "location": "test",
       "desc": ""
-    },
-    {
-      "id": 7,
-      "title": "okay another one",
-      "type": "yay!!!",
-      "location": "test",
-      "desc": "<p>teste</p>"
     }
   ]
 }
