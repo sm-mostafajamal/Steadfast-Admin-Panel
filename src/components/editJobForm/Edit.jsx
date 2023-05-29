@@ -1,5 +1,6 @@
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import "./style.scss";
 
 const Edit = ({ jobToEdit, setValue, handleForm }) => {
   return (
@@ -12,9 +13,9 @@ const Edit = ({ jobToEdit, setValue, handleForm }) => {
           required
         />
         <input
-          name="type"
-          defaultValue={jobToEdit.type}
-          placeholder="Job Type"
+          name="compensation"
+          defaultValue={jobToEdit.compensation}
+          placeholder="Compensation"
           required
         />
         <input

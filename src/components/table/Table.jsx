@@ -28,7 +28,7 @@ const Table = () => {
         <thead>
           <tr className="head">
             <th style={{ width: "30%" }}>Job Title</th>
-            <th style={{ width: "20%" }}>Job Type</th>
+            <th style={{ width: "20%" }}>Compensation</th>
             <th style={{ width: "30%" }}>Location</th>
             <th style={{ width: "20%" }}>Actions</th>
           </tr>
@@ -39,7 +39,7 @@ const Table = () => {
             jobsToShow.map((job) => (
               <tr className="body" key={job.id}>
                 <td>{job.title}</td>
-                <td>{job.type}</td>
+                <td>{job.compensation}</td>
                 <td>{job.location}</td>
                 <td className="action">
                   <Link to={`/jobs/${job.id}`}>

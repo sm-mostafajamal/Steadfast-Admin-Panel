@@ -40,7 +40,7 @@ const NewAndEdit = ({ title }) => {
     e.preventDefault();
     const content = {
       title: e.target.title.value,
-      type: e.target.type.value,
+      compensation: e.target.compensation.value,
       location: e.target.location.value,
       desc: value,
     };
