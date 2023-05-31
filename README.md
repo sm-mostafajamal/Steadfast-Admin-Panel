@@ -6,11 +6,11 @@
 
 ## Optimizations
 
-My learning was focused on making a simple UI and a smooth UX, and have a seasonal animation for dark-mode.
+My learning was focused on making a simple UI and a smooth UX with fast interactio and having a seasonal animation for dark mode.
 
 ## Lessons Learned:
 
-Seperation of Concerns. Realized how much easier it is to style and pass prop using styled component and using reusable component in React. And Redux-query for server side state management. Also using Redux for client-side state management.
+Separation of Concerns. Realized how much easier it is to style and pass props using styled components and using reusable components in React. And Redux-query for server-side state management. Also using Redux for client-side state management.
 
 ## More Projects
 
