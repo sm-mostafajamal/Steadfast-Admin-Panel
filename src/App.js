@@ -13,6 +13,7 @@ import { getAllJobs } from "./server/jobsServer";
 import { useQuery } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { appendJob, setPageNumber } from "./redux/jobReducer";
+import { useState } from "react";
 
 function App() {
   const { currentPageNumber } = useSelector((state) => state.jobs);
@@ -21,6 +22,9 @@ function App() {
   const { data } = useQuery("jobs", getAllJobs, {
     refetchOnWindowFocus: false,
   });
+
+  const [user, setUser] = useState(null);
+
   useEffect(() => {
     if (data) {
       dispatch(appendJob(data));
@@ -32,28 +36,37 @@ function App() {
     <div className={state.darkMode ? "app dark" : "app light"}>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<Navigate replace to="/login" />}> */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-          <Route path="login" element={<Login />} />
-          <Route index element={<Home />} />
-          <Route path="jobs">
-            <Route index element={<Lists />} />
-            <Route path="post" element={<NewAndEdit title="Post New Job" />} />
-            <Route
-              path="post/:id"
-              element={<NewAndEdit title="Edit Job Post" />}
-            />
-            <Route path=":id" element={<Single />} />
-          </Route>
-          <Route path="applied">
-            <Route index element={<Lists />} />
-            <Route path=":formId" element={<Single />} />
-          </Route>
-          <Route path="contacts">
-            <Route index element={<Lists />} />
-            <Route path=":formId" element={<Single />} />
-          </Route>
-          {/* </Route> */}
+          {!user ? (
+            <>
+              <Route path="/" element={<Navigate to="login" replace />} />
+              <Route path="/login" element={<Login setUser={setUser} />} />
+            </>
+          ) : (
+            <>
+              <Route path="*" element={<Navigate to="/" replace />} />
+              <Route index element={<Home />} />
+              <Route path="jobs">
+                <Route index element={<Lists />} />
+                <Route
+                  path="post"
+                  element={<NewAndEdit title="Post New Job" />}
+                />
+                <Route
+                  path="post/:id"
+                  element={<NewAndEdit title="Edit Job Post" />}
+                />
+                <Route path=":id" element={<Single />} />
+              </Route>
+              <Route path="applied">
+                <Route index element={<Lists />} />
+                <Route path=":formId" element={<Single />} />
+              </Route>
+              <Route path="contacts">
+                <Route index element={<Lists />} />
+                <Route path=":formId" element={<Single />} />
+              </Route>
+            </>
+          )}
         </Routes>
       </BrowserRouter>
     </div>
