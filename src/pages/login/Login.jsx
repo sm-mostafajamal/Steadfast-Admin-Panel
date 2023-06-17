@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./style.scss";
 import { login } from "../../server/loginServer";
+import { setToken } from "../../server/jobsServer";
 
 const Login = ({ setUser }) => {
   const [username, setUsername] = useState("");
@@ -11,6 +12,8 @@ const Login = ({ setUser }) => {
     try {
       const user = await login({ username, password });
       setUser(user);
+      window.localStorage.setItem("loggedInUser", JSON.stringify(user));
+      setToken(user.token);
       setUsername("");
       setPassword("");
     } catch (error) {

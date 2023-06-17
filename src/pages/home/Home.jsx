@@ -3,15 +3,14 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Widget from "../../components/widget/Widget";
 import "./style.scss";
 
-const Home = () => {
+const Home = ({ setUser }) => {
   return (
     <div className="home">
-      <Sidebar />
+      <Sidebar setUser={setUser} />
       <div className="homeContainer">
         <Navbar />
         <div className="widgets">
-          <Widget type="user" />
-          <Widget type="order" />
+          <Widget type="job" />
         </div>
         <div className="tables">
           <div className="listContainer">

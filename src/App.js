@@ -9,7 +9,7 @@ import "./pages/style/dark.scss";
 import "./pages/style/light.scss";
 import { useContext, useEffect } from "react";
 import { DarkModeContext } from "./context/DarkModeContext";
-import { getAllJobs } from "./server/jobsServer";
+import { getAllJobs, setToken } from "./server/jobsServer";
 import { useQuery } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { appendJob, setPageNumber } from "./redux/jobReducer";
@@ -31,7 +31,14 @@ function App() {
       dispatch(setPageNumber(currentPageNumber));
     }
   }, [data, dispatch, currentPageNumber]);
-
+  useEffect(() => {
+    const loggedInUserJSON = window.localStorage.getItem("loggedInUser");
+    if (loggedInUserJSON) {
+      const loggedInUser = JSON.parse(loggedInUserJSON);
+      setUser(loggedInUser);
+      setToken(loggedInUser.token);
+    }
+  }, []);
   return (
     <div className={state.darkMode ? "app dark" : "app light"}>
       <BrowserRouter>
@@ -44,7 +51,7 @@ function App() {
           ) : (
             <>
               <Route path="*" element={<Navigate to="/" replace />} />
-              <Route index element={<Home />} />
+              <Route index element={<Home setUser={setUser} />} />
               <Route path="jobs">
                 <Route index element={<Lists />} />
                 <Route

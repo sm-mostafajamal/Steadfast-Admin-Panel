@@ -9,11 +9,18 @@ import {
   Work,
 } from "@mui/icons-material";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/DarkModeContext";
-const Sidebar = () => {
-  const { dispatch } = useContext(DarkModeContext);
 
+const Sidebar = ({ setUser }) => {
+  const { dispatch } = useContext(DarkModeContext);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    window.localStorage.clear();
+    setUser(null);
+    return navigate("login");
+  };
   return (
     <div className="sidebar">
       <div className="top">
@@ -60,7 +67,12 @@ const Sidebar = () => {
           </li>
           <li>
             <LogoutOutlined className="icon" />
-            <span style={{ fontSize: "18px", color: "black" }}>Logout</span>
+            <span
+              onClick={handleClick}
+              style={{ fontSize: "18px", color: "black" }}
+            >
+              Logout
+            </span>
           </li>
         </ul>
       </div>
